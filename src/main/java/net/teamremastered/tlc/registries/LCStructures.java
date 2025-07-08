@@ -10,6 +10,7 @@ import net.teamremastered.tlc.structures.LostCastle;
 public class LCStructures {
 
     public static StructureType<LostCastle> LOST_CASTLE;
+    public static final Identifier CASTLE_ID = new Identifier(TheLostCastle.MODID, "lost_castle");
 
     /**
      * Registers the structure itself and sets what its path is. In this case, the
@@ -19,7 +20,7 @@ public class LCStructures {
      * use them too directly from the registries. It's great for mod/datapacks compatibility.
      */
     public static void init() {
-        LOST_CASTLE = Registry.register(Registries.STRUCTURE_TYPE, new Identifier(TheLostCastle.MODID, "lost_castle"), () -> LostCastle.CODEC);
+        LOST_CASTLE = Registry.register(Registries.STRUCTURE_TYPE, CASTLE_ID, () -> LostCastle.CODEC);
     }
 
 }
