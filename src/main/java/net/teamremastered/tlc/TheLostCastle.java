@@ -2,7 +2,7 @@ package net.teamremastered.tlc;
 
 import net.fabricmc.api.ModInitializer;
 import net.teamremastered.tlc.registries.LCProcessors;
-import net.teamremastered.tlc.registries.LCStructures;
+import net.teamremastered.tlc.registries.LCStructure;
 import net.teamremastered.tlc.util.LCMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ public class TheLostCastle implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
-		LCStructures.init();
+		LCStructure.init();
 		LCProcessors.init();
 		LCMap.registerVillagerTrades();
 	}

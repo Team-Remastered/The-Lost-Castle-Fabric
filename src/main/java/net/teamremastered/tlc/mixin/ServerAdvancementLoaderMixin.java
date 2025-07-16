@@ -16,7 +16,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.ServerAdvancementLoader;
 import net.minecraft.util.Identifier;
 import net.teamremastered.tlc.TheLostCastle;
-import net.teamremastered.tlc.registries.LCStructures;
+import net.teamremastered.tlc.registries.LCStructure;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -29,12 +29,12 @@ public abstract class ServerAdvancementLoaderMixin {
         Advancement.Builder result = original.call(obj, predicateDeserializer);
         if (id.equals(Identifier.tryParse("story/follow_ender_eye"))) {
             String s = "in_castle";
-            CriterionConditions c = TickCriterion.Conditions.createLocation(LocationPredicate.feature(RegistryKey.of(RegistryKeys.STRUCTURE, LCStructures.CASTLE_ID)));
+            CriterionConditions c = TickCriterion.Conditions.createLocation(LocationPredicate.feature(RegistryKey.of(RegistryKeys.STRUCTURE, LCStructure.CASTLE_ID)));
             AdvancementCriterion criterion = new AdvancementCriterion(c);
             result.criterion(s, criterion);
             String[][] req = ((AdvBuilderAccessor)result).getRequirements();
-            req = Arrays.copyOf(req, req.length+1);
-            req[req.length-1] = new String[]{s};
+            req[0] = Arrays.copyOf(req[0], req[0].length +1);
+            req[0][req[0].length-1] = s;
             result.requirements(req);
             if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
                 TheLostCastle.LOGGER.info("[The Lost Castle/debug] Eye Spy advancement modified to: {}", result.toJson());

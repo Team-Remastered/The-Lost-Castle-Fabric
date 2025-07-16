@@ -7,7 +7,7 @@ import net.minecraft.world.gen.structure.StructureType;
 import net.teamremastered.tlc.TheLostCastle;
 import net.teamremastered.tlc.structures.LostCastle;
 
-public class LCStructures {
+public class LCStructure {
 
     public static StructureType<LostCastle> LOST_CASTLE;
     public static final Identifier CASTLE_ID = new Identifier(TheLostCastle.MODID, "lost_castle");

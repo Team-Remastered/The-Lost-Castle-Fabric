@@ -13,7 +13,7 @@ import net.minecraft.world.gen.HeightContext;
 import net.minecraft.world.gen.heightprovider.HeightProvider;
 import net.minecraft.world.gen.structure.Structure;
 import net.minecraft.world.gen.structure.StructureType;
-import net.teamremastered.tlc.registries.LCStructures;
+import net.teamremastered.tlc.registries.LCStructure;
 
 import java.util.Optional;
 
@@ -134,7 +134,7 @@ public class LostCastle extends Structure {
 
     @Override
     public StructureType<?> getType() {
-        return LCStructures.LOST_CASTLE; // Helps the game know how to turn this structure back to json to save to chunks
+        return LCStructure.LOST_CASTLE; // Helps the game know how to turn this structure back to json to save to chunks
     }
 }
 
